@@ -24,11 +24,21 @@ public class CheckItemServiceImpl implements CheckItemService {
         checkItemDao.add(checkItem);
     }
 
-    public PageResult pageQuery(Integer currentPage, Integer pageSize, String
-            queryString) {
+    public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString) {
         //完成分页查询，基于myBatis框架提供的分页助手插件完成
         PageHelper.startPage(currentPage, pageSize);
         Page<CheckItem> page = checkItemDao.selectByCondition(queryString);
         return new PageResult(page.getTotal(), page.getResult());
+    }
+
+    //删除
+    public void delete(Integer id) throws RuntimeException {
+        //查询当前检查项是否和检查组关联
+        long count = checkItemDao.findCountByCheckItemId(id);
+        if (count > 0) {
+            //当前检查项被引用，不能删除
+            throw new RuntimeException("当前检查项被引用，不能删除");
+        }
+        checkItemDao.deleteById(id);
     }
 }
