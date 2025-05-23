@@ -1,5 +1,6 @@
 package com.liusp.service;
 
+import com.liusp.entity.PageResult;
 import com.liusp.pojo.CheckItem;
 
 import java.util.List;
@@ -9,4 +10,6 @@ import java.util.List;
  */
 public interface CheckItemService {
     public void add(CheckItem checkItem);
+
+    public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
 }
