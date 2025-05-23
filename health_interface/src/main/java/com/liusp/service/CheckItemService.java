@@ -14,4 +14,9 @@ public interface CheckItemService {
     public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
 
     public void delete(Integer id);
+
+    public void edit(CheckItem checkItem);
+
+    public CheckItem findById(Integer id);
+
 }
