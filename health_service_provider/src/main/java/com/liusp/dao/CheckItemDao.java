@@ -3,6 +3,8 @@ package com.liusp.dao;
 import com.github.pagehelper.Page;
 import com.liusp.pojo.CheckItem;
 
+import java.util.List;
+
 /**
  * 持久层Dao接口
  */
@@ -18,5 +20,7 @@ public interface CheckItemDao {
     public void edit(CheckItem checkItem);
 
     public CheckItem findById(Integer id);
+
+    public List<CheckItem> findAll();
 
 }

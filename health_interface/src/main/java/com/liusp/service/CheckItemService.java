@@ -1,6 +1,7 @@
 package com.liusp.service;
 
 import com.liusp.entity.PageResult;
+import com.liusp.pojo.CheckGroup;
 import com.liusp.pojo.CheckItem;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface CheckItemService {
     public void edit(CheckItem checkItem);
 
     public CheckItem findById(Integer id);
+
+    public List<CheckItem> findAll();
 
 }
